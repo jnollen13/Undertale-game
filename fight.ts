@@ -844,7 +844,9 @@ export function sans_attack5() {
         undertale.linearBone(0, 450, AttackType.Normal)
         undertale.linearBone(0, 300, AttackType.Normal)
         undertale.linearBone(0, 150, AttackType.Normal)
-        undertale.platform(true,88464, true)
+        undertale.platform(true, 88464, true, 4, -40);
+        undertale.platform(true, 44232, true, -20, 40);
+        undertale.platform(true, 22116, true, -8, -20);
         let time=1200
         for (let i = 0; i < 565; i++) {
             time += 150;
@@ -867,5 +869,4 @@ export function sans_attack5() {
     export function jodims_attack3(): void {
         undertale.laser()
     }
-
 }

@@ -1023,7 +1023,7 @@ forever(function () {
     statusbar.setLabel(damage+"/200")
 })
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function() {
-    attacknumber=6
+    attacknumber=7
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform, function (sprite: Sprite, otherSprite: Sprite) {
     mySprite.vy = -21

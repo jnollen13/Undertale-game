@@ -193,8 +193,8 @@ namespace undertale {
     //% blockGap=8
     //% help=undertale/no-help
     //% group="Attacks"
-    export function platform(shouldMove:boolean,lifespan:number,shouldBounce?:boolean, height?:number, speed?:number): void {
-        platforms = sprites.create(assets.image`whiteline`, SpriteKind.Platform)
+    export function platform(shouldMove:boolean,lifespan:number,shouldBounce:boolean, height:number, speed:number): void {
+        let platforms = sprites.create(assets.image`whiteline`, SpriteKind.Platform)
         if(shouldBounce){
             platforms.setFlag(SpriteFlag.BounceOnWall, true)
         }else{
@@ -207,11 +207,8 @@ namespace undertale {
             platforms.vx=40
             }
         }
-        if(height){
-            platforms.y+=height
-        }else{
-            platforms.y+=15
-        }
+        let total = height+((screen.height/2)+15)
+            platforms.y = total
         timer.after(lifespan-5000, function(){
             platforms.setImage(img`
                 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
@@ -234,7 +231,6 @@ namespace undertale {
         platforms.lifespan=lifespan
         platforms.setFlag(SpriteFlag.GhostThroughSprites, false)
     }
-    export let platforms: Sprite = null
 }
 let smashr:Sprite=null
 game.onUpdate(function() {
