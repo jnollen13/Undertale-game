@@ -1,5 +1,6 @@
 {
     "name": "sans fight-thanks to THEGAMINGDEAD for template",
+    "version": "1.0.0",
     "description": "undertale-game",
     "dependencies": {
         "device": "*",
