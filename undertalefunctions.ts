@@ -191,38 +191,28 @@ namespace undertale {
     }
 
     /**
-     * summons a laser, that is placed randomly on a right shooter tile and
-     * fires at the box
+     * summons a platform that apears in the middle of the screen.
+     * will last for the number set, and can be set to bounce on walls or not
     */
-    //% blockId=bottomLaser
-    //% block="Create bottomLaser"
+    //% blockId=platform
+    //% block="Create platform, should move: $shouldMove|| $lifespan || should bounce: $shouldBounce"
     //% weight=85
     //% blockGap=8
     //% help=undertale/no-help
     //% group="Attacks"
-    export function bottomLaser(): void {
-        let mySprite2 = sprites.create(assets.image`laser-shooterR`, SpriteKind.sans)
-        tiles.placeOnRandomTile(mySprite2, assets.tile`sideShooterRight`)
-        mySprite2.z += 1
-        timer.after(1000, function () {
-            let laser = sprites.create(assets.image`white`, SpriteKind.Enemy)
-            laser.setPosition(mySprite2.x, mySprite2.y)
-            scaling.scaleByPixels(laser, 200, ScaleDirection.Horizontally, ScaleAnchor.Right)
-            scaling.scaleByPixels(laser, -3, ScaleDirection.Vertically, ScaleAnchor.Middle)
-            for (let i = 0; i < 4; i++) {
-                timer.after(50, function () {
-                    scaling.scaleByPixels(laser, 1, ScaleDirection.Vertically, ScaleAnchor.Middle)
-                })
-            }
-            timer.after(300, function () {
-                sprites.destroy(mySprite2)
-                scaling.scaleByPixels(laser, -2, ScaleDirection.Vertically, ScaleAnchor.Middle)
-                timer.after(100, function () {
-                    sprites.destroy(laser)
-                })
-            })
-        })
+    export function platform(shouldMove:boolean,lifespan:number,shouldBounce?:boolean): void {
+        platforms = sprites.create(assets.image`whiteline`, SpriteKind.Platform)
+        if(shouldBounce){
+            platforms.setFlag(SpriteFlag.BounceOnWall, true)
+        }
+        if(shouldMove){
+            platforms.vx=40
+        }
+        platforms.y+=15
+        platforms.lifespan=lifespan
+        platforms.setFlag(SpriteFlag.GhostThroughSprites, false)
     }
+    export let platforms: Sprite = null
 }
 let smashr:Sprite=null
 game.onUpdate(function() {

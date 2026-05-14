@@ -134,6 +134,11 @@ b b c b b c b b
 b b c b b c b b 
 . b c b b c b . 
 `;
+            case "image9":
+            case "whiteline":return img`
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+`;
         }
         return null;
     })

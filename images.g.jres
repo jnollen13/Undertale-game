@@ -39,6 +39,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "boot"
     },
+    "image9": {
+        "data": "hwQgAAIAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAABEAAAARAAAAEQAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "whiteline"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

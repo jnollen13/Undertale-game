@@ -834,6 +834,24 @@ export function sans_attack5() {
     //% group="Jodims Attacks"
     export function jodims_attack2(): void{
         undertale.laser()
+        undertale.normalBone(0)
         undertale.rightLaser()
+        undertale.linearBone(0, 600, AttackType.Normal)
+        undertale.linearBone(0, 750, AttackType.Normal)
+        undertale.linearBone(0, 900, AttackType.Normal)
+        undertale.linearBone(0, 1050, AttackType.Normal)
+        undertale.linearBone(0, 1200, AttackType.Normal)
+        undertale.linearBone(0, 450, AttackType.Normal)
+        undertale.linearBone(0, 300, AttackType.Normal)
+        undertale.linearBone(0, 150, AttackType.Normal)
+        undertale.platform(true,88464, true)
+        let time=1200
+        for (let i = 0; i < 565; i++) {
+            time += 150;
+            undertale.linearBone(0, time, AttackType.Normal)
+        }
+        timer.after(90400,function(){
+            undertale.startTurn()
+        })
     }
 }

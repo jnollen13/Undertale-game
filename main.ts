@@ -5,6 +5,7 @@ namespace SpriteKind {
     export const bone1 = SpriteKind.create()
     export const sans = SpriteKind.create()
     export const BlueBone = SpriteKind.create()
+    export const Platform = SpriteKind.create();
 }
 function actselected() {
     debug.sayText("act", 5000)
@@ -625,6 +626,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function() {
         if(inbattle==1)
         mySprite.vy=-165
     }
+    if(mySprite.overlapsWith(undertale.platforms)){
+        mySprite.vy = -105
+    }
 })
 forever(function () {
     if (actbutton == 1) {
@@ -1020,4 +1024,9 @@ health.z = -1
 forever(function () {
     statusbar.value=damage
     statusbar.setLabel(damage+"/200")
+})
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function() {
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform, function (sprite: Sprite, otherSprite: Sprite) {
+    mySprite.vy = -21
 })
