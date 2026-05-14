@@ -8,7 +8,7 @@ namespace SpriteKind {
     export const Platform = SpriteKind.create();
 }
 function actselected() {
-    debug.sayText("act", 5000)
+    debug.sayText("act", 4000)
     guimode = 1
     gui_message_number = 0
 }
@@ -1023,7 +1023,11 @@ forever(function () {
     statusbar.setLabel(damage+"/200")
 })
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function() {
+    attacknumber=6
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform, function (sprite: Sprite, otherSprite: Sprite) {
     mySprite.vy = -21
+    if(controller.up.isPressed()){
+        mySprite.vy-= 105
+    }
 })

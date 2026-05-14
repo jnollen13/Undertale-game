@@ -212,6 +212,24 @@ namespace undertale {
         }else{
             platforms.y+=15
         }
+        timer.after(lifespan-5000, function(){
+            platforms.setImage(img`
+                5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+                5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+            `)
+            timer.after(2000,function(){
+                platforms.setImage(img`
+                    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+                    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+                `)
+                timer.after(2000,function(){
+                    platforms.setImage(img`
+                        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                        2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+                    `)
+                })
+            })
+        })
         
         platforms.lifespan=lifespan
         platforms.setFlag(SpriteFlag.GhostThroughSprites, false)

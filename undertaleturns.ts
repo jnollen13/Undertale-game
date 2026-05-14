@@ -44,6 +44,8 @@ namespace undertale{
             undertale.jodims_attack1();
         }else if(attacknumber==7){
             undertale.jodims_attack2();
+        }else if(attacknumber==8){
+            undertale.jodims_attack3();
         }
     }
 }
