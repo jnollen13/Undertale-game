@@ -865,6 +865,7 @@ export function sans_attack5() {
     //% help=undertale/no-help
     //% group="Jodims Attacks"
     export function jodims_attack3(): void {
-
+        undertale.laser()
     }
+
 }

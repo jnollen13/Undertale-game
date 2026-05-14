@@ -626,9 +626,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function() {
         if(inbattle==1)
         mySprite.vy=-165
     }
-    if(mySprite.overlapsWith(undertale.platforms)){
-        mySprite.vy = -105
-    }
 })
 forever(function () {
     if (actbutton == 1) {

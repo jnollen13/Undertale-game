@@ -1,9 +1,3 @@
-
-/**
-* Use this file to define custom functions and blocks.
-* Read more at https://arcade.makecode.com/blocks/custom
-*/
-
 enum AttackType {
     //% block="normal"
     Normal,
@@ -16,7 +10,6 @@ enum AttackType {
     //% block="smash"
     Smash
 }
-
 /**
  * blocks with undertale functions.
  */
@@ -195,20 +188,31 @@ namespace undertale {
      * will last for the number set, and can be set to bounce on walls or not
     */
     //% blockId=platform
-    //% block="Create platform, should move: $shouldMove|| $lifespan || should bounce: $shouldBounce"
+    //% block="Create platform, should move: $shouldMove|| $lifespan || should bounce: $shouldBounce|| $height|| $speed"
     //% weight=85
     //% blockGap=8
     //% help=undertale/no-help
     //% group="Attacks"
-    export function platform(shouldMove:boolean,lifespan:number,shouldBounce?:boolean): void {
+    export function platform(shouldMove:boolean,lifespan:number,shouldBounce?:boolean, height?:number, speed?:number): void {
         platforms = sprites.create(assets.image`whiteline`, SpriteKind.Platform)
         if(shouldBounce){
             platforms.setFlag(SpriteFlag.BounceOnWall, true)
+        }else{
+            platforms.setFlag(SpriteFlag.DestroyOnWall, true)
         }
         if(shouldMove){
+            if(speed){
+                platforms.vx=speed
+            }else{
             platforms.vx=40
+            }
         }
-        platforms.y+=15
+        if(height){
+            platforms.y+=height
+        }else{
+            platforms.y+=15
+        }
+        
         platforms.lifespan=lifespan
         platforms.setFlag(SpriteFlag.GhostThroughSprites, false)
     }
