@@ -17,7 +17,6 @@ namespace undertale{
         attacknumber += 1
     }
 
-
     /**
      * Starts sans turn
     */
