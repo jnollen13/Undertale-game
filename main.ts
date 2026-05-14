@@ -11,11 +11,12 @@ function actselected() {
     guimode = 1
     gui_message_number = 0
 }
-let p5="pie x 5"
+let p0="pie x 0";let s0="steak x 0";
+let h0="health potion x 0";let sm0 ="snowmen x 0";
 function itemselected() {
     debug.sayText("item", 5000)
     story.showPlayerChoices("pie x "+pie, "steak x "+steak, "health potion x "+health_potion, "snowmen x "+snowmen);
-    if (story.checkLastAnswer("pie x 0") || story.checkLastAnswer("steak x 0") || story.checkLastAnswer("health_potion x 0") || story.checkLastAnswer("snowmen x 0")){
+    if (story.checkLastAnswer(p0)||story.checkLastAnswer(s0)||story.checkLastAnswer(h0)||story.checkLastAnswer(sm0)){
 
     } else if (story.checkLastAnswer("pie x "+pie)){
         damage += 35

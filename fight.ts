@@ -811,6 +811,9 @@ export function sans_attack5() {
                 } else {
                     undertale.linearBone(randint(randint(6, 14), 90), time, AttackType.RightLaser)
                 }
+                if(Math.percentChance(25)){
+                    undertale.linearBone(randint(0, 24), time, AttackType.Normal)
+                }
             }
             undertale.linearBone(0, 2750, AttackType.Blue)
             timer.after(33000 + 3000, function () {
