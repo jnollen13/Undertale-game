@@ -824,10 +824,10 @@ export function sans_attack5() {
     }
 
     /**
-     * jodims secound attack
+     * jodims second attack
     */
-    //% blockId=sans_attack5
-    //% block="fifth sans attack"
+    //% blockId=jodimAttack2
+    //% block="second jodim attack"
     //% weight=4
     //% blockGap=8
     //% help=undertale/no-help
@@ -853,5 +853,18 @@ export function sans_attack5() {
         timer.after(90400,function(){
             undertale.startTurn()
         })
+    }
+
+    /**
+     * jodims third attack
+    */
+    //% blockId=jodimAttack3
+    //% block="third jodim attack"
+    //% weight=4
+    //% blockGap=8
+    //% help=undertale/no-help
+    //% group="Jodims Attacks"
+    export function jodims_attack3(): void {
+
     }
 }
