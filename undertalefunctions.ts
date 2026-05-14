@@ -148,8 +148,10 @@ namespace undertale {
         let mySprite2 = sprites.create(assets.image`laser-shooterR`, SpriteKind.sans)
         tiles.placeOnRandomTile(mySprite2, assets.tile`sideShooterRight`)
         mySprite2.z += 1
+        mySprite2.lifespan=5000
         timer.after(1000, function () {
             let laser = sprites.create(assets.image`white`, SpriteKind.Enemy)
+            laser.lifespan=5000
             laser.setPosition(mySprite2.x, mySprite2.y)
             scaling.scaleByPixels(laser, 200, ScaleDirection.Horizontally, ScaleAnchor.Right)
             scaling.scaleByPixels(laser, -3, ScaleDirection.Vertically, ScaleAnchor.Middle)
@@ -173,7 +175,7 @@ namespace undertale {
     */
     //% blockId=creatLinearBone
     //% block="smash"
-    //% weight=100
+    //% weight=88
     //% blockGap=8
     //% waitTime.shadow=timePicker
     //% help=undertale/no-help
@@ -186,6 +188,40 @@ namespace undertale {
         tiles.placeOnRandomTile(smashr, assets.tile`myTile10`)
         smashr.ay=100;
         smashr.lifespan=10000
+    }
+
+    /**
+     * summons a laser, that is placed randomly on a right shooter tile and
+     * fires at the box
+    */
+    //% blockId=bottomLaser
+    //% block="Create bottomLaser"
+    //% weight=85
+    //% blockGap=8
+    //% help=undertale/no-help
+    //% group="Attacks"
+    export function bottomLaser(): void {
+        let mySprite2 = sprites.create(assets.image`laser-shooterR`, SpriteKind.sans)
+        tiles.placeOnRandomTile(mySprite2, assets.tile`sideShooterRight`)
+        mySprite2.z += 1
+        timer.after(1000, function () {
+            let laser = sprites.create(assets.image`white`, SpriteKind.Enemy)
+            laser.setPosition(mySprite2.x, mySprite2.y)
+            scaling.scaleByPixels(laser, 200, ScaleDirection.Horizontally, ScaleAnchor.Right)
+            scaling.scaleByPixels(laser, -3, ScaleDirection.Vertically, ScaleAnchor.Middle)
+            for (let i = 0; i < 4; i++) {
+                timer.after(50, function () {
+                    scaling.scaleByPixels(laser, 1, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                })
+            }
+            timer.after(300, function () {
+                sprites.destroy(mySprite2)
+                scaling.scaleByPixels(laser, -2, ScaleDirection.Vertically, ScaleAnchor.Middle)
+                timer.after(100, function () {
+                    sprites.destroy(laser)
+                })
+            })
+        })
     }
 }
 let smashr:Sprite=null
