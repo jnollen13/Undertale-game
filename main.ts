@@ -586,7 +586,7 @@ let health_potion=1
 let bone72: Sprite = null
 let bone: Sprite = null
 let guitext = ""
-let selectedbutton = 0
+let selectedbutton = 1
 let gui_message_number = 0
 let bone62: Sprite = null
 let health: Sprite = null
@@ -1023,7 +1023,7 @@ forever(function () {
     statusbar.setLabel(damage+"/200")
 })
 controller.menu.onEvent(ControllerButtonEvent.Pressed, function() {
-    attacknumber=7
+    attacknumber=5
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Platform, function (sprite: Sprite, otherSprite: Sprite) {
     mySprite.vy = -21

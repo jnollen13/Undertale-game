@@ -1,7 +1,7 @@
 namespace undertale{
     
     /**
-     * secound part of sans first attack
+     * second part of sans first attack
     */
     //% blockId=s_attack1
     //% block="first sans attack"
@@ -63,7 +63,9 @@ export function s_attack1(){
                 undertale.linearBone(0, 2200, AttackType.Laser)
                 undertale.linearBone(0, 2250, AttackType.Laser)
                 timer.after(3000, function(){
+                    if(attacknumber==1){
                     undertale.startTurn()
+                    }
                 })
             })
         })
@@ -108,6 +110,7 @@ export function sans_attack2() {
         }
         timer.after(48750+3000, function() {
             mySprite.vy = -20
+            if(attacknumber==2)
             undertale.startTurn()
         })
     })
@@ -180,9 +183,11 @@ export function sans_attack2() {
                 undertale.linearBone(0, 1500, AttackType.Laser)
                 undertale.linearBone(0, 2500, AttackType.Laser)
                 timer.after(11000, function(){
-                undertale.startTurn()
-                gravity=true
-                mySprite.setImage(img`
+                    if(attacknumber==3){
+                        undertale.startTurn();
+                    }
+                    gravity=true
+                    mySprite.setImage(img`
                     . . . . . . . . . . . . . . . .
                     . . . . . . . . . . . . . . . .
                     . . . . . . . . . . . . . . . .
@@ -199,15 +204,15 @@ export function sans_attack2() {
                     . . . . . . . . . . . . . . . .
                     . . . . . . . . . . . . . . . .
                     . . . . . . . . . . . . . . . .
-                `)
-             tiles.setCurrentTilemap(tilemap`level`)
+                    `)
+                    tiles.setCurrentTilemap(tilemap`level`)
                 })
             })
         })
     }
 
     /**
- * sans secound attack
+ * sans fourth attack
 */
     //% blockId=sans_attack4
     //% block="fourth sans attack"
@@ -726,6 +731,7 @@ export function sans_attack2() {
                                                                                 undertale.linearBone(0, 500, AttackType.RightLaser)
                                                                                 undertale.linearBone(0, 500, AttackType.RightLaser)
                                                                                 timer.after(1200, function(){
+                                                                                    if(attacknumber==4)
                                                                                     undertale.startTurn();
                                                                                 })
                                                                             })
