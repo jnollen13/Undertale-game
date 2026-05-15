@@ -63,9 +63,7 @@ export function s_attack1(){
                 undertale.linearBone(0, 2200, AttackType.Laser)
                 undertale.linearBone(0, 2250, AttackType.Laser)
                 timer.after(3000, function(){
-                    if(attacknumber==1){
                     undertale.startTurn()
-                    }
                 })
             })
         })
@@ -183,9 +181,7 @@ export function sans_attack2() {
                 undertale.linearBone(0, 1500, AttackType.Laser)
                 undertale.linearBone(0, 2500, AttackType.Laser)
                 timer.after(11000, function(){
-                    if(attacknumber==3){
                         undertale.startTurn();
-                    }
                     gravity=true
                     mySprite.setImage(img`
                     . . . . . . . . . . . . . . . .
@@ -731,7 +727,7 @@ export function sans_attack2() {
                                                                                 undertale.linearBone(0, 500, AttackType.RightLaser)
                                                                                 undertale.linearBone(0, 500, AttackType.RightLaser)
                                                                                 timer.after(1200, function(){
-                                                                                    if(attacknumber==4)
+                                                                                    
                                                                                     undertale.startTurn();
                                                                                 })
                                                                             })
@@ -822,6 +818,7 @@ export function sans_attack5() {
                 }
             }
             undertale.linearBone(0, 2750, AttackType.Blue)
+            undertale.linearBone(0, 34000, AttackType.Blue)
             timer.after(33000 + 3000, function () {
                 mySprite.vy = -20
                 undertale.startTurn()
@@ -874,5 +871,6 @@ export function sans_attack5() {
     //% group="Jodims Attacks"
     export function jodims_attack3(): void {
         undertale.laser()
+        undertale.platform(true, 5000, true, 0, -5)
     }
 }

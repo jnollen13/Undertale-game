@@ -30,22 +30,16 @@ namespace undertale{
         mySprite.ay = 500
         inbattle = 1
         controller.moveSprite(mySprite, 100, 0)
-        if (attacknumber == 1) {
-            sans_attack1()
-        } else if (attacknumber == 2) {
-            undertale.sans_attack2();
-        }else if(attacknumber==3){
-            undertale.sans_attack3();
-        }else if(attacknumber==4){
-            undertale.sans_attack4();
-        }else if(attacknumber==5){
-            undertale.sans_attack5();
-        }else if(attacknumber==6){
-            undertale.jodims_attack1();
-        }else if(attacknumber==7){
-            undertale.jodims_attack2();
-        }else if(attacknumber==8){
-            undertale.jodims_attack3();
-        }
+        const attacks = [
+            sans_attack1,
+            undertale.sans_attack2,
+            undertale.sans_attack3,
+            undertale.sans_attack4,
+            undertale.sans_attack5,
+            undertale.jodims_attack1,
+            undertale.jodims_attack2,
+            undertale.jodims_attack3
+        ];
+        attacks[attacknumber - 1]();
     }
 }

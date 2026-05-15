@@ -192,7 +192,7 @@ namespace undertale {
     //% weight=85
     //% blockGap=8
     //% help=undertale/no-help
-    //% group="Attacks"
+    //% group="Utill"
     export function platform(shouldMove:boolean,lifespan:number,shouldBounce:boolean, height:number, speed:number): void {
         let platforms = sprites.create(assets.image`whiteline`, SpriteKind.Platform)
         if(shouldBounce){
