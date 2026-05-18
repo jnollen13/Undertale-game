@@ -8,7 +8,9 @@ enum AttackType {
     //% block="right laser"
     RightLaser,
     //% block="smash"
-    Smash
+    Smash,
+    //% block=fiash
+    Fiash
 }
 /**
  * blocks with undertale functions.
@@ -85,8 +87,10 @@ namespace undertale {
             undertale.laser();
         }else if(attackType==AttackType.RightLaser){
             undertale.rightLaser();
-        }else{
+        }else if(attackType==AttackType.Smash){
             undertale.smash();
+        }else{
+            undertale.smash2();
         }
         })
     }
@@ -166,7 +170,7 @@ namespace undertale {
     /**
      * summons the smash attack.
     */
-    //% blockId=creatLinearBone
+    //% blockId=smashAttack
     //% block="smash"
     //% weight=88
     //% blockGap=8
@@ -230,6 +234,27 @@ namespace undertale {
         
         platforms.lifespan=lifespan
         platforms.setFlag(SpriteFlag.GhostThroughSprites, false)
+    }
+
+    /**
+     * summons the secound smash attack.
+    */
+    //% blockId=smashAttack2
+    //% block="smash2"
+    //% weight=88
+    //% blockGap=8
+    //% waitTime.shadow=timePicker
+    //% help=undertale/no-help
+    //% group="Attacks"
+    export function smash2() {
+        let imgs =assets.image`fiash`
+        smashr = sprites.create(imgs, SpriteKind.Enemy)
+        smashr.setFlag(SpriteFlag.AutoDestroy, true);
+        smashr.setFlag(SpriteFlag.GhostThroughWalls, true);
+        tiles.placeOnRandomTile(smashr, assets.tile`myTile10`)
+        smashr.x += randint(-8,8)
+        smashr.ay = 100;
+        smashr.lifespan = 5000
     }
 }
 let smashr:Sprite=null

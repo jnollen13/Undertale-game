@@ -871,6 +871,12 @@ export function sans_attack5() {
     //% group="Jodims Attacks"
     export function jodims_attack3(): void {
         undertale.laser()
-        undertale.platform(true, 5000, true, 0, -5)
+        undertale.platform(true, 10000, true, 0, -5)
+        undertale.normalBone(2);
+        undertale.linearBone(0, 500, AttackType.Fiash)
+        undertale.linearBone(0, 1000, AttackType.Fiash)
+        undertale.linearBone(0, 1500, AttackType.Fiash)
+        undertale.linearBone(0, 2000, AttackType.Fiash)
+        undertale.linearBone(0, 2500, AttackType.Fiash)
     }
 }

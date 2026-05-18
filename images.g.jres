@@ -44,6 +44,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "whiteline"
     },
+    "image10": {
+        "data": "hwQQABAAAAAAAAAAAAAAAADAzMwMAAAAAMxVVcUAAADAVVVVVQwAAMBVtbu7ywAAAMy7sbvLAAAAwBGxG8EAAADAEbEREQwAzLsRsRERDABcVbGxEdHMAFy7sRHB0cwAXPuxERHRzQzM8LsbERHd/QBfVbsR8f//AF9VVf8PAAAA////AAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "fiash"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",
