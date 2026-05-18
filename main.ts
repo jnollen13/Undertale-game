@@ -12,33 +12,53 @@ function actselected() {
     guimode = 1
     gui_message_number = 0
 }
-let p0="pie x 0";let s0="steak x 0";
+function page2(){
+    story.showPlayerChoices("snowmen x "+snowmen, "noodles x "+noodles, "last page")
+    if(story.checkLastAnswer("last page")){
+        page1();
+    }else{
+        checkItem();
+    }
+}
+function checkItem(){
+    if (story.checkLastAnswer(p0) || story.checkLastAnswer(s0) || story.checkLastAnswer(h0) || story.checkLastAnswer(sm0)|| story.checkLastAnswer(n0)) {
+
+    } else if (story.checkLastAnswer("pie x " + pie)) {
+        damage += 35
+        pie -= 1
+    } else if (story.checkLastAnswer("steak x " + steak)) {
+        damage += 50
+        steak -= 1
+    } else if (story.checkLastAnswer("snowmen x " + snowmen)) {
+        damage += 100
+        snowmen -= 1
+    } else if (story.checkLastAnswer("health potion x " + health_potion)) {
+        damage = 200
+        health_potion -= 1
+    }else if(story.checkLastAnswer("noodels x "+noodles)){
+        damage+=10
+        noodles-=1
+    }
+    if (damage >= 200) {
+        damage = 200
+    }
+    timer.after(1000, function () {
+        undertale.sansturn()
+    })
+}
+let p0="pie x 0";let s0="steak x 0";let n0="noodles x 0"
 let h0="health potion x 0";let sm0 ="snowmen x 0";
 function itemselected() {
     debug.sayText("item", 5000)
-    story.showPlayerChoices("pie x "+pie, "steak x "+steak, "health potion x "+health_potion, "snowmen x "+snowmen);
-    if (story.checkLastAnswer(p0)||story.checkLastAnswer(s0)||story.checkLastAnswer(h0)||story.checkLastAnswer(sm0)){
-
-    } else if (story.checkLastAnswer("pie x "+pie)){
-        damage += 35
-        pie -= 1
-    } else if (story.checkLastAnswer("steak x "+steak)){
-        damage += 50
-        steak -=1
-    } else if (story.checkLastAnswer("snowmen x "+snowmen)){
-        damage += 100
-        snowmen-=1
-    } else if (story.checkLastAnswer("health potion x "+health_potion)){
-        damage= 200
-        health_potion-=1
+    page1();
+}
+function page1(){
+    story.showPlayerChoices("pie x " + pie, "steak x " + steak, "health potion x " + health_potion, "other page");
+    if (story.checkLastAnswer("other page")) {
+        page2()
+    }else{
+        checkItem();
     }
-
-    if(damage>=200){
-        damage=200
-    }
-    timer.after(1000, function(){
-        undertale.sansturn()
-    })
 }
 function setvars() {
     Fightbutton = 1
@@ -583,6 +603,7 @@ let steak =3;
 let pie = 4;
 let snowmen= 2;
 let health_potion=1
+let noodles = 5
 let bone72: Sprite = null
 let bone: Sprite = null
 let guitext = ""
