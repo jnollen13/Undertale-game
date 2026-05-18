@@ -878,5 +878,16 @@ export function sans_attack5() {
         undertale.linearBone(0, 1500, AttackType.Fiash)
         undertale.linearBone(0, 2000, AttackType.Fiash)
         undertale.linearBone(0, 2500, AttackType.Fiash)
+        let attacktimer = 3000
+        for (let i = 0; i < 45; i++) {
+            undertale.linearBone(0, attacktimer, AttackType.Fiash)
+            attacktimer+=500
+            if(Math.percentChance(10)){
+                undertale.linearBone(0, attacktimer, AttackType.Normal)
+            }
+            if (Math.percentChance(5)) {
+                undertale.linearBone(0, attacktimer, AttackType.Laser)
+            }
+        }
     }
 }
